@@ -4,6 +4,10 @@
 		"es2021": true,
 		"node": true
 	},
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
 	"extends": ["eslint:recommended", "plugin:prettier/recommended"],
 	"overrides": [
 		{
@@ -16,7 +20,8 @@
 				"project": "./tsconfig.json"
 			},
 			"rules": {
-				"@typescript-eslint/ban-ts-comment": "off"
+				"@typescript-eslint/ban-ts-comment": "off",
+				"no-unused-vars": "off"
 			}
 		}
 	]

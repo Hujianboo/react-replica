@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages",
-		"lint-staged": "lint-staged"
+		"lint-staged": "lint-staged",
+		"build:dev": "rm -rf dist && rollup --bundleConfigAsCjs --config scripts/rollup/react.config.js "
 	},
 	"keywords": [],
 	"author": "",
@@ -14,6 +15,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.2",
 		"@commitlint/config-conventional": "^17.4.2",
+		"@rollup/plugin-commonjs": "^24.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
 		"commitlint": "^17.4.2",
@@ -23,6 +25,10 @@
 		"husky": "^8.0.3",
 		"lint-staged": "^13.1.0",
 		"prettier": "^2.8.3",
+		"rollup": "^3.10.0",
+		"rollup-plugin-generate-package-json": "^3.2.0",
+		"rollup-plugin-typescript2": "^0.34.1",
 		"typescript": "^4.9.4"
-	}
+	},
+	"dependencies": {}
 }
