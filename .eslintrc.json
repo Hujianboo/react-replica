@@ -21,7 +21,8 @@
 			},
 			"rules": {
 				"@typescript-eslint/ban-ts-comment": "off",
-				"no-unused-vars": "off"
+				"no-unused-vars": "off",
+				"no-constant-condition": "off"
 			}
 		}
 	]
