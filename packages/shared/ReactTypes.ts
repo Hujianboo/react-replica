@@ -12,3 +12,4 @@ export interface ReactElementType {
 	ref: Ref;
 	__mark: string;
 }
+export type Action<State> = State | ((state: State) => State);
