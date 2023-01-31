@@ -15,6 +15,7 @@ export function scheduleUpdateOnFiber(fiber: FiberNode) {
 	// TODO 调度功能
 	// fiberRootNode
 	const root = markUpdateFromFiberToRoot(fiber);
+	// debugger;
 	renderRoot(root);
 }
 
@@ -26,6 +27,7 @@ function markUpdateFromFiberToRoot(fiber: FiberNode) {
 		parent = node.return;
 	}
 	if (node.tag === HostRoot) {
+		// debugger;
 		return node.stateNode;
 	}
 	return null;
@@ -49,7 +51,6 @@ function renderRoot(root: FiberRootNode) {
 
 	const finishedWork = root.current.alternate;
 	root.finishedWork = finishedWork;
-
 	// wip fiberNode树 树中的flags
 	commitRoot(root);
 }
@@ -94,10 +95,12 @@ function workLoop() {
 }
 
 function performUnitOfWork(fiber: FiberNode) {
+	// debugger;
 	const next = beginWork(fiber);
 	fiber.memoizedProps = fiber.pendingProps;
 
 	if (next === null) {
+		// debugger;
 		completeUnitOfWork(fiber);
 	} else {
 		workInProgress = next;
@@ -108,6 +111,7 @@ function completeUnitOfWork(fiber: FiberNode) {
 	let node: FiberNode | null = fiber;
 
 	do {
+		// debugger;
 		completeWork(node);
 		const sibling = node.sibling;
 

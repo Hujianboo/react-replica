@@ -38,6 +38,7 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		newChild?: ReactElementType
 	) {
 		// 判断当前fiber的类型
+		// debugger;
 		if (typeof newChild === 'object' && newChild !== null) {
 			switch (newChild.$$typeof) {
 				case REACT_ELEMENT_TYPE:

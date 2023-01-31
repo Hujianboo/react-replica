@@ -7,6 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages",
 		"lint-staged": "lint-staged",
+		"demo": "vite serve demo --config scripts/vite/vite.config.js --force",
 		"build:dev": "rm -rf dist && rollup --bundleConfigAsCjs --config scripts/rollup/dev.config.js "
 	},
 	"keywords": [],
@@ -17,8 +18,11 @@
 		"@commitlint/config-conventional": "^17.4.2",
 		"@rollup/plugin-commonjs": "^24.0.0",
 		"@rollup/plugin-replace": "^5.0.2",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.10",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
+		"@vitejs/plugin-react": "^2.2.0",
 		"commitlint": "^17.4.2",
 		"eslint": "^8.32.0",
 		"eslint-config-prettier": "^8.6.0",
@@ -29,7 +33,7 @@
 		"rollup": "^3.10.0",
 		"rollup-plugin-generate-package-json": "^3.2.0",
 		"rollup-plugin-typescript2": "^0.34.1",
-		"typescript": "^4.9.4"
-	},
-	"dependencies": {}
+		"typescript": "^4.9.4",
+		"vite": "^3.2.3"
+	}
 }

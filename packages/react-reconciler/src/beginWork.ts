@@ -24,6 +24,7 @@ export const beginWork = (wip: FiberNode) => {
 };
 
 function updateHostRoot(wip: FiberNode) {
+	// debugger;
 	const baseState = wip.memoizedState;
 	const updateQueue = wip.updateQueue as UpdateQueue<Element>;
 	const pending = updateQueue.shared.pending;
@@ -45,10 +46,11 @@ function updateHostComponent(wip: FiberNode) {
 
 function reconcileChildren(wip: FiberNode, children?: ReactElementType) {
 	const current = wip.alternate;
-
+	// debugger;
 	if (current !== null) {
 		// update
 		wip.child = reconcileChildFibers(wip, current?.child, children);
+		// debugger;
 	} else {
 		// mount
 		wip.child = mountChildFibers(wip, null, children);

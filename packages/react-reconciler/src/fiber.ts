@@ -70,7 +70,7 @@ export const createWorkInProgress = (
 	pendingProps: Props
 ): FiberNode => {
 	let wip = current.alternate;
-
+	// debugger;
 	if (wip === null) {
 		// mount
 		wip = new FiberNode(current.tag, pendingProps, current.key);
