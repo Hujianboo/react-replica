@@ -1,30 +1,33 @@
-import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbol';
-import type {
-	ReactElementType,
+import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
+import {
 	Type,
 	Key,
 	Ref,
-	Props
+	Props,
+	ReactElementType,
+	ElementType
 } from 'shared/ReactTypes';
 
-const ReactElement = (
+// ReactElement
+
+const ReactElement = function (
 	type: Type,
 	key: Key,
 	ref: Ref,
 	props: Props
-): ReactElementType => {
+): ReactElementType {
 	const element = {
 		$$typeof: REACT_ELEMENT_TYPE,
-		key,
 		type,
+		key,
 		ref,
 		props,
-		__mark: 'bobo'
+		__mark: 'KaSong'
 	};
 	return element;
 };
-// 创建返回的ReactElement对象
-export const jsx = (type: Type, config: any, ...maybeChildren: any) => {
+
+export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
 	let key: Key = null;
 	const props: Props = {};
 	let ref: Ref = null;
@@ -58,7 +61,7 @@ export const jsx = (type: Type, config: any, ...maybeChildren: any) => {
 	return ReactElement(type, key, ref, props);
 };
 
-export const jsxDEV = (type: Type, config: any, ...maybeChildren: any) => {
+export const jsxDEV = (type: ElementType, config: any) => {
 	let key: Key = null;
 	const props: Props = {};
 	let ref: Ref = null;
@@ -81,13 +84,6 @@ export const jsxDEV = (type: Type, config: any, ...maybeChildren: any) => {
 			props[prop] = val;
 		}
 	}
-	const maybeChildrenLength = maybeChildren.length;
-	if (maybeChildrenLength) {
-		if (maybeChildrenLength === 1) {
-			props.children = maybeChildren[0];
-		} else {
-			props.children = maybeChildren;
-		}
-	}
+
 	return ReactElement(type, key, ref, props);
 };

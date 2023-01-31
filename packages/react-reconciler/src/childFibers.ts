@@ -1,4 +1,4 @@
-import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbol';
+import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
 import { ReactElementType } from 'shared/ReactTypes';
 import { createFiberFromElement, FiberNode } from './fiber';
 import { Placement } from './fiberFlags';
@@ -45,6 +45,9 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 						reconcileSingleElement(returnFiber, currentFiber, newChild)
 					);
 				default:
+					if (__DEV__) {
+						console.warn('未实现的reconcile类型', newChild);
+					}
 					break;
 			}
 		}
@@ -56,7 +59,9 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 				reconcileSingleTextNode(returnFiber, currentFiber, newChild)
 			);
 		}
-
+		if (__DEV__) {
+			console.warn('未实现的reconcile类型', newChild);
+		}
 		return null;
 	};
 }

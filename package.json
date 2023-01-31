@@ -7,7 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages",
 		"lint-staged": "lint-staged",
-		"build:dev": "rm -rf dist && rollup --bundleConfigAsCjs --config scripts/rollup/react.config.js "
+		"build:dev": "rm -rf dist && rollup --bundleConfigAsCjs --config scripts/rollup/dev.config.js "
 	},
 	"keywords": [],
 	"author": "",
@@ -16,6 +16,7 @@
 		"@commitlint/cli": "^17.4.2",
 		"@commitlint/config-conventional": "^17.4.2",
 		"@rollup/plugin-commonjs": "^24.0.0",
+		"@rollup/plugin-replace": "^5.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
 		"commitlint": "^17.4.2",
