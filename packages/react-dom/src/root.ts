@@ -12,6 +12,8 @@ export function createRoot(container: Container) {
 	// debugger;
 	return {
 		render(element: ReactElementType) {
+			console.log(element);
+
 			updateContainer(element, root);
 		}
 	};

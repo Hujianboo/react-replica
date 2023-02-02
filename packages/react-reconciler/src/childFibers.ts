@@ -13,6 +13,7 @@ function ChildReconciler(shouldTrackEffects: boolean) {
 		// 根据element创建fiber
 		const fiber = createFiberFromElement(element);
 		fiber.return = returnFiber;
+		// debugger;
 		return fiber;
 	}
 	function reconcileSingleTextNode(

@@ -51,6 +51,8 @@ function renderRoot(root: FiberRootNode) {
 
 	const finishedWork = root.current.alternate;
 	root.finishedWork = finishedWork;
+	console.log(root);
+
 	// wip fiberNode树 树中的flags
 	commitRoot(root);
 }
@@ -95,12 +97,10 @@ function workLoop() {
 }
 
 function performUnitOfWork(fiber: FiberNode) {
-	// debugger;
 	const next = beginWork(fiber);
 	fiber.memoizedProps = fiber.pendingProps;
 
 	if (next === null) {
-		// debugger;
 		completeUnitOfWork(fiber);
 	} else {
 		workInProgress = next;
@@ -111,7 +111,6 @@ function completeUnitOfWork(fiber: FiberNode) {
 	let node: FiberNode | null = fiber;
 
 	do {
-		// debugger;
 		completeWork(node);
 		const sibling = node.sibling;
 
