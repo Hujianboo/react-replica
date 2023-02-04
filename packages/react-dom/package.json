@@ -13,6 +13,9 @@
 		"react-reconciler": "workspace: * ",
 		"shared": "workspace: * "
 	},
+	"peerDependencies": {
+		"react": "workspace: *"
+	},
 	"devDependencies": {
 		"@rollup/plugin-alias": "^4.0.3"
 	}
