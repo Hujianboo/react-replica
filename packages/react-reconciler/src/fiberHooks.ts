@@ -88,14 +88,16 @@ function mountWorkInProgressHook(): Hook {
 	};
 	if (workInProgressHook === null) {
 		// mount时 第一个hook
+		// debugger;
 		if (currentlyRenderingFiber === null) {
-			throw new Error('请在函数组件内调用hook');
+			throw new Error('hook not used in function component');
 		} else {
 			workInProgressHook = hook;
 			currentlyRenderingFiber.memoizedState = workInProgressHook;
 		}
 	} else {
 		// mount时 后续的hook
+		// debugger;
 		workInProgressHook.next = hook;
 		workInProgressHook = hook;
 	}

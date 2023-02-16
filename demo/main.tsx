@@ -4,13 +4,24 @@ import { ReactElementType } from 'shared/ReactTypes';
 import ReactDom from 'react-dom/client';
 import { useState } from 'react';
 const App = () => {
-	const [num, setNum] = useState(100);
-	const [num1, setNum1] = useState(100);
+	const [num, setNum] = useState(10000);
+	const [num1, setNum1] = useState(100086);
 	return (
 		<p>
-			<span>
-				<h1>{num}</h1>
-			</span>
+			<div
+				onClick={() => {
+					console.log('父亲被冒泡触发');
+				}}
+			>
+				<div
+					onClick={(e) => {
+						console.log('点击');
+						e.stopPropagation();
+					}}
+				>
+					点击
+				</div>
+			</div>
 		</p>
 	);
 };
