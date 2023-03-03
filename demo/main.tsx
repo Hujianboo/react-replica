@@ -5,25 +5,13 @@ import ReactDom from 'react-dom/client';
 import { useState } from 'react';
 const App = () => {
 	const [num, setNum] = useState(10000);
-	const [num1, setNum1] = useState(100086);
-	return (
-		<p>
-			<div
-				onClick={() => {
-					console.log('父亲被冒泡触发');
-				}}
-			>
-				<div
-					onClick={(e) => {
-						console.log('点击');
-						e.stopPropagation();
-					}}
-				>
-					点击
-				</div>
-			</div>
-		</p>
-	);
+	window.setNum = setNum;
+	const arr =
+		num % 2 === 0
+			? [<div key="1">你</div>, <div key="2">我</div>, <div key="3">他</div>]
+			: [<div key="3">他</div>, <div key="2">我</div>];
+
+	return <ul onClickCapture={() => setNum((num) => num + 1)}>{arr}</ul>;
 };
 
 const element = document.getElementById('root');
